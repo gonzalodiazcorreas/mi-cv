@@ -16,12 +16,27 @@ body {
   line-height: 1.5;
 }
 
+/*
 .hero {
   background: #f2f4f8;
   padding: 40px 20px;
   text-align: center;
   border-bottom: 1px solid #ddd;
 }
+*/
+
+.hero {
+    background-image: url("assets/header-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: white;
+}
+
 
 .subtitle {
   color: #666;
