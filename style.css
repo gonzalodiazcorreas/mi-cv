@@ -25,6 +25,13 @@ body {
 }
 */
 
+.hero::before {
+    content: "";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.45); /* capa oscura transparente */
+    z-index: -1;
+}
+
 .hero {
     background-image: url("assets/header-bg.jpg");
     background-size: cover;
@@ -35,6 +42,14 @@ body {
     text-align: center;
     border-bottom: 1px solid #ddd;
     color: white;
+
+    position: relative;
+    z-index: 1;
+}
+
+.hero * {
+    position: relative;
+    z-index: 2;
 }
 
 
