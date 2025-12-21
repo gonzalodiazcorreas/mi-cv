@@ -5,9 +5,24 @@
   --accent: #2b6cb0;
 }
 
+
 * {
   box-sizing: border-box;
 }
+
+
+/* Fondo general de toda la página */
+html, body {
+    background-color: #fafafa; /* blanco suave */
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    white-space: pre-line;
+    text-align: start;
+}
+
 
 body {
   font-family: system-ui, sans-serif;
@@ -17,14 +32,6 @@ body {
   line-height: 1.5;
 }
 
-/*
-.hero {
-  background: #f2f4f8;
-  padding: 40px 20px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-*/
 
 .hero {
     background-image: url("assets/header-bg.jpg");
@@ -33,7 +40,7 @@ body {
     background-repeat: no-repeat;
 
     padding: 60px 20px;
-    text-align: center;
+    text-align: start;
     border-bottom: 1px solid #ddd;
     color: var(--text);
 
@@ -54,17 +61,6 @@ body {
     z-index: 2;
 }
 
-/*
-.hero-title {
-    background: rgba(255,255,255, 0.85);
-    color: #222;
-    padding: 6px 12px;
-
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-}
-
-*/
 
 .hero-title {
     position: relative;
@@ -91,8 +87,6 @@ body {
         background-position: center top;
     }
 }
-
-
 
 
 .subtitle {
@@ -136,9 +130,10 @@ nav a {
 
 
 .container {
-  max-width: 900px;
+  max-width: 100%;
   margin: auto;
   padding: 20px;
+  text-align: start;
 }
 
 section {
@@ -150,7 +145,7 @@ section h2 {
 }
 
 .footer {
-  text-align: center;
+  text-align: start;
   padding: 20px;
   color: #777;
   border-top: 1px solid #ddd;
