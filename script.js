@@ -20,8 +20,8 @@
         });
  }
 
- cargarTexto("txt/about_me.txt", "text-about_me");
+ cargarTexto("./txt/about_me.txt", "text-about_me");
  
- cargarTexto("txt/profesional.txt", "text-profesional");
- cargarTexto("txt/academy.txt", "text-academy");
+ cargarTexto("./txt/profesional.txt", "text-profesional");
+ cargarTexto("./txt/academy.txt", "text-academy");
 
