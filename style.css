@@ -120,10 +120,14 @@ body {
     z-index: -1;
 }
 
+nav {
+  display: inline-flex;
+  gap: 20px;
+}
 
 nav a {
-  margin: 0 10px;
-  color: var(--accent);
+  margin: auto;
+  color: var(--bg);
   text-decoration: none;
   font-weight: 500;
 }
