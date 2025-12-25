@@ -1,5 +1,5 @@
  :root {
-  --bg: #ffffff;
+  --bg: #fafafa;
   --tit: #ff0062;
   --text: #222222;
   --accent: #2b6cb0;
@@ -31,37 +31,84 @@ body {
   padding: 2rem 2rem;
   
   max-width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+
   margin: 0 auto;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero::after {
+  padding: 0;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/header-bg.jpg");
+  background-size: cover;
+  background-position: center;
+
+  transition: none;
+}
+
+.hero-panel {
+  background: var(--bg);
+  background-size: cover;
+  inset: 0;
+  padding: 1rem 1rem;
+  
+  position: absolute;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+
+  transform-origin: top left;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  height: 100%;
+  padding: 0rem;
 
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  justify-content: start;
+  gap: 1rem;
 
-  position: sticky;
-  top: 0;
-  background: #fafafa;
-  z-index: 100;
-
-  transition: 
-    padding 0.35s ease,
-    gap 0.35s ease,
-    box-shadow 0.35s ease;
+  transition: none;
+  transform-origin: top left;
 }
 
-.hero.compact {
-  padding: 1rem 1rem;
-  gap: 0rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08)
+.hero-content::after {
+  gap: 1rem;
+  padding: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 30px;
+
+  box-shadow: 0 -10px 20px rgba(0,0,0,0.15);
+  opacity: var(--shadow-opacity, 0);;
+
+  transition: none;
+}
+.white-bg {
+  background-color: var(--bg);
+  display: inline-block;
+  padding-right: 0.5rem;
 }
 
 .hero-title {
   font-size: 2rem;
-  font-weight: 750;
-  transition: font-size 0.35s ease;
-}
-
-.hero.compact .hero-title {
-  font-size: 1.8rem;
 }
 
 .subtitle {
@@ -69,11 +116,6 @@ body {
   color: var(--text);
   transition: font-size 0.35s ease;
 }
-
-.hero.compact .subtitle {
-  font-size: 1.2rem;
-}
-
 
 .about-layout {
   display: flex;
@@ -127,15 +169,16 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-#text-profesional {
-  transition: max-height 0.3s ease;
+
+.collapsible {
   max-height: 200px;
   overflow: hidden;
+  transition: max-height 0.4s ease;
 }
 
-#text-profesional.expanded {
-  max-height: none;
-  overflow: visible;
+.collapsible.expanded {
+  max-height: 2000px;
+  
 }
 
 .gallery {
@@ -143,6 +186,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
 }
+
 
 .gallery img {
   width: 100%;

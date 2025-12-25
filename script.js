@@ -26,20 +26,22 @@ function loadText(filePath, containerId, callback) {
     );
 }
 
-
 function setupToggleIfNeeded(contentId, buttonId, maxHeight = 200) {
     const content = document.getElementById(contentId);
     const button = document.getElementById(buttonId);
 
+    if (!content || !button) return;
+
     if (content.scrollHeight > maxHeight) {
-        content.classList.add("expanded");
-        content.dataset.maxHeight = maxHeight; // Store for reference
+        content.classList.add("collapsible");
+        /*content.style.maxHeight = maxHeight + "px";*/
+
         button.style.display = "inline-block";
+        button.textContent = "Read more";
     } else {
         button.style.display = "none";
     }
 }
-
 
 loadText("txt/about_me.txt", "text-about_me");
 
@@ -62,15 +64,64 @@ button.addEventListener("click", () => {
 });}
 
 
+/*
 const header = document.querySelector(".hero");
+let isCompact = false;
 
 window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
+    const y = window.scrollY;
+
+    if (!isCompact && y > 120) {
         header.classList.add("compact");
-    } else {
+        isCompact = true;
+    }
+    else if (isCompact && y < 40) {
         header.classList.remove("compact");
+        isCompact = false;
     }
 });
+*/
+
+const hero = document.querySelector(".hero");
+const heroBg = document.querySelector(".hero-bg");
+const heroContent = document.querySelector(".hero-content");
+const heropanel = document.querySelector(".hero-panel")
+const herotitle = document.querySelector(".hero-title")
+
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const heroHeight = window.innerHeight;
+
+  // progress from 0 → 1
+  let progress = scrollY / heroHeight;
+  progress = Math.min(Math.max(progress, 0), 1);
+
+  /* 1. Fade background */
+  heroBg.style.opacity = 1 - progress;
+
+  /* 2. Move background up */
+  const heroContentHeight = herotitle.offsetHeight * 3;
+  const minY = -(heroHeight - heroContentHeight);
+
+  const translateY = Math.max(
+    minY - 30,
+    -progress * 900
+  );
+
+  heropanel.style.transform = `translateY(${translateY}px)`;
+  heroBg.style.transform = `translateY(${translateY}px)`;
+
+
+  /* 3. Shrink spacing */
+  heroContent.style.gap = `${2 - progress * 1.5}rem`;
+
+  /* 4. Scale text slightly */
+  heroContent.style.transform = `translateY(${-progress * 30}px) scale(${1 - progress * 0.1})`; 
+
+  /* 5. Shadow */
+  hero.style.setProperty("--shadow-opacity", progress);
+});
+
 
 /*
 fetch("./txt/about_me.txt")
