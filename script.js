@@ -63,25 +63,6 @@ button.addEventListener("click", () => {
   button.textContent = expanded ? "Read less" : "Read more";
 });}
 
-
-/*
-const header = document.querySelector(".hero");
-let isCompact = false;
-
-window.addEventListener("scroll", () => {
-    const y = window.scrollY;
-
-    if (!isCompact && y > 120) {
-        header.classList.add("compact");
-        isCompact = true;
-    }
-    else if (isCompact && y < 40) {
-        header.classList.remove("compact");
-        isCompact = false;
-    }
-});
-*/
-
 const hero = document.querySelector(".hero");
 const heroBg = document.querySelector(".hero-bg");
 const heroContent = document.querySelector(".hero-content");
@@ -104,7 +85,7 @@ window.addEventListener("scroll", () => {
   const minY = -(heroHeight - heroContentHeight);
 
   const translateY = Math.max(
-    minY - 30,
+    minY - 36,
     -progress * 900
   );
 
@@ -113,54 +94,34 @@ window.addEventListener("scroll", () => {
 
 
   /* 3. Shrink spacing */
-  heroContent.style.gap = `${2 - progress * 1.5}rem`;
+  heroContent.style.gap = `${1 - progress * 1.5}rem`;
 
   /* 4. Scale text slightly */
-  heroContent.style.transform = `translateY(${-progress * 30}px) scale(${1 - progress * 0.1})`; 
+//   heroContent.style.transform = `translateY(${-progress * 30}px) scale(${1 - progress * 0.1})`; 
+  heroContent.style.transform = `scale(${1 - progress * 0.1})`; 
+
 
   /* 5. Shadow */
   hero.style.setProperty("--shadow-opacity", progress);
+
+  /* 6. Scroll-down button fade */
+  scrollDownBtn.style.opacity = 1 - progress;
+  scrollDownBtn.style.pointerEvents = progress > 0.8 ? "none" : "auto";
+
+  /* 7. Let content below be selectable */
+  if (progress >= 0.1) {
+    hero.style.pointerEvents = "none";
+  } else {
+    hero.style.pointerEvents = "auto";
+  }
+
 });
 
+const scrollDownBtn = document.querySelector(".scroll-down");
 
-/*
-fetch("./txt/about_me.txt")
-    .then(response => response.text())
-    .then(text => {
-        const container = document.getElementById("text-about_me");
-        
-        const paragraphs = text
-            .trim()
-            .split(/\n\s*\n/);
-
-        container.innerHTML = paragraphs
-            .map(p =>`<p>${p}</p>` )
-            .join("");
-    });
-*/
-/*
- function cargarTexto(rutaTxt, idElemento) {
-    fetch(rutaTxt)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("No se pudo cargar " + rutaTxt);
-            }
-            return response.text();
-        })
-        .then(texto => {
-            const elemento = document.getElementById(idElemento);
-            if (elemento) {
-                elemento.textContent = texto;
-            }
-        })
-        .catch(error => {
-            console.error(error);
-        });
- }
-
- cargarTexto("./txt/about_me.txt", "text-about_me");
- 
- cargarTexto("./txt/profesional.txt", "text-profesional");
- cargarTexto("./txt/academy.txt", "text-academy");
- */
-
+scrollDownBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: window.innerHeight,
+    behavior: "smooth"
+  });
+});
