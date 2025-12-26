@@ -143,19 +143,27 @@ body {
 .scroll-down:hover {
   transform: translateX(-50%) translateY(4px);
 }
+#about_me {
+  padding: 1rem;
+}
+
+#h2aboutme {
+  padding-top: 4rem;
+  margin-top: 4rem;
+}
 
 .about-layout {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   align-items: start;
 }
 
 .about-text {
-  flex: 3;
+  flex: 8;
 }
 
 .about-text p {
-  max-width: 90ch;
+  max-width: fit-content;
 }
 
 .about-text p + p {
@@ -172,8 +180,42 @@ body {
   display: block;
 }
 
-.article p {
-  margin-bottom: 0.5rem;
+.social-links {
+  margin-top: 1rem;
+
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.social-links a {
+  color: var(--text);
+  text-decoration: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  color: var(--accent);
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.social-links svg {
+  width: 20px;
+  height: 20px;
 }
 
 .text-button {
@@ -196,17 +238,85 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+#profesional {
+  padding: 1rem;
+}
+
+/* #h3trescientosmil {
+  margin-top: 1rem;
+  border-top: 1px solid #000;
+}
+
+.summary {
+  margin-bottom: 1rem;
+} */
+
+details[open] summary ~ * {
+  animation: open 0.6 ease-in-out;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary {
+  width: 100%;
+  padding: 0.5rem 0;
+  margin-top: 1rem;
+  border-top: 1px solid black;
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+}
+
+details summary:after {
+  content: "+";
+  color: black;
+  position: absolute;
+  transform-origin: center;
+  transition: 200ms linear;
+  right: 0;
+
+}
+
+details[open] summary:after {
+  transform: rotate(45deg);
+}
+
+details summary {
+  outline: 0;
+}
+
+details p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* .resume p + p {
+  margin-top: 1rem;
+}
 
 .collapsible {
   max-height: 200px;
   overflow: hidden;
   transition: max-height 0.4s ease;
+  margin-bottom: 1rem;
 }
 
 .collapsible.expanded {
   max-height: 2000px;
   
-}
+} */
 
 .gallery {
   display: grid;
@@ -244,8 +354,8 @@ section {
 }
 
 section h2 {
-  margin-top: 4rem;
-  margin-bottom: 1.5rem;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
 }
 
 section h3 {

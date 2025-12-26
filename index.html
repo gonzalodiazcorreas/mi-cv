@@ -27,7 +27,7 @@
 
   <main class="container">
     <section id="about_me">
-      <h2>About me</h2>
+      <h2 id="h2aboutme">About me</h2>
 
       <div class="about-layout">
 
@@ -46,6 +46,25 @@
             alt="Gonzalo's Portrait"
             >
           </a>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/gonzalo-diaz-correas/"
+              target="_blank"
+              aria-label="LinkedIn">
+              <i data-lucide="Linkedin"></i>
+            </a>
+
+            <a href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub">
+              <i data-lucide="github"></i>
+            </a>
+
+            <a href="https://twitter.com/yourusername"
+              target="_blank"
+              aria-label="X / Twitter">
+              <i data-lucide="twitter"></i>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -55,11 +74,17 @@
       <h2>Profesional</h2>
       
       <article class="article">
-        <h3>Urban projects</h3>
-        <div id="text-profesional" class="collapsible">
-          <p>Cargando...</p> 
-        </div>
-        <button class="text-button" id ="toggle-profesional">Read more</button>
+          <div id="text-profesional" class="resume">
+            <p>Cargando...</p> 
+          </div>
+
+        <details class="details">
+          <summary class="summary">trescientosmil</summary>
+            <div id="text-profesional-trescientosmil" class="collapsible">
+              <p>Cargando...</p> 
+            </div> 
+        </details>
+        
         
         <div class="gallery">
           <img src="assets/gallery/Barcelona.png" alt="Urban project 1">
@@ -105,7 +130,9 @@
   </footer>
 
   <script src="pdfjs/build/pdf.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="script.js"></script>
+  
 </body>
 </html>
 

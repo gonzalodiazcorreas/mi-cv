@@ -47,8 +47,12 @@ loadText("txt/about_me.txt", "text-about_me");
 
 
 loadText("txt/profesional.txt", "text-profesional", () => {
-    setupToggleIfNeeded("text-profesional", "toggle-profesional", 200)
+    setupToggleIfNeeded("text-profesional", "toggle-profesional", 300)
 });
+
+loadText("txt/profesional-trescientosmil.txt", "text-profesional-trescientosmil", () => {
+  setupToggleIfNeeded("text-profesional-trescientosmil", "toggle-profesional-trescientosmil", 200)
+})
 
 
 loadText("txt/academy.txt", "text-academy");
@@ -57,11 +61,14 @@ loadText("txt/academy.txt", "text-academy");
 const button = document.getElementById("toggle-profesional");
 const content = document.getElementById("text-profesional");
 
+
 if (button && content) {
 button.addEventListener("click", () => {
   const expanded = content.classList.toggle("expanded");
   button.textContent = expanded ? "Read less" : "Read more";
 });}
+
+
 
 const hero = document.querySelector(".hero");
 const heroBg = document.querySelector(".hero-bg");
@@ -125,3 +132,5 @@ scrollDownBtn.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
+
+lucide.createIcons();
