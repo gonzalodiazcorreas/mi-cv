@@ -2,6 +2,8 @@ const yearSpan = document.getElementById("anio");
 const currentYear = new Date().getFullYear();
 yearSpan.textContent = currentYear
 
+// Función para cargar el texto desde los .txt
+
 function loadText(filePath, containerId, callback) {
     const container = document.getElementById(containerId);
     container.innerHTML = "<p>Cargando...</p>"
@@ -26,6 +28,7 @@ function loadText(filePath, containerId, callback) {
     );
 }
 
+// Función para poner un botón de leer más si se supera x altura. No se utiliza desde la utilización de details y summary
 function setupToggleIfNeeded(contentId, buttonId, maxHeight = 200) {
     const content = document.getElementById(contentId);
     const button = document.getElementById(buttonId);
@@ -43,33 +46,28 @@ function setupToggleIfNeeded(contentId, buttonId, maxHeight = 200) {
     }
 }
 
+
 loadText("txt/about_me.txt", "text-about_me");
 
-
-loadText("txt/profesional.txt", "text-profesional", () => {
-    setupToggleIfNeeded("text-profesional", "toggle-profesional", 300)
-});
-
-loadText("txt/profesional-trescientosmil.txt", "text-profesional-trescientosmil", () => {
-  setupToggleIfNeeded("text-profesional-trescientosmil", "toggle-profesional-trescientosmil", 200)
-})
-
+loadText("txt/profesional.txt", "text-profesional");
+loadText("txt/profesional-trescientosmil.txt", "text-profesional-trescientosmil");
 
 loadText("txt/academy.txt", "text-academy");
 
 
-const button = document.getElementById("toggle-profesional");
-const content = document.getElementById("text-profesional");
+// Contantes y funciones para activar el botón creado con setupToggleIfNeeded, innecesario si no se utiliza
+// const button = document.getElementById("toggle-profesional");
+// const content = document.getElementById("text-profesional");
+
+// if (button && content) {
+// button.addEventListener("click", () => {
+//   const expanded = content.classList.toggle("expanded");
+//   button.textContent = expanded ? "Read less" : "Read more";
+// });}
 
 
-if (button && content) {
-button.addEventListener("click", () => {
-  const expanded = content.classList.toggle("expanded");
-  button.textContent = expanded ? "Read less" : "Read more";
-});}
 
-
-
+// Const y Funcion para pasar de hero a pantalla completa a una franja superior
 const hero = document.querySelector(".hero");
 const heroBg = document.querySelector(".hero-bg");
 const heroContent = document.querySelector(".hero-content");

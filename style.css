@@ -4,6 +4,9 @@
   --text: #222222;
   --accent: #2b6cb0;
   --txt_reg: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --magnifier: 6;
+  --gap: 1vmin;
+  --transition: 0.6s;
 }
 
 
@@ -24,7 +27,8 @@ html {
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
-  color: var(--text)
+  color: var(--text);
+  z-index: 1;
 }
 
 .hero {
@@ -41,6 +45,9 @@ body {
   justify-content: start;
   flex-direction: column;
   gap: 1.5rem;
+
+  isolation: isolate;
+  z-index: 10;
 }
 
 .hero::after {
@@ -240,16 +247,12 @@ body {
 
 #profesional {
   padding: 1rem;
+  /* position: relative; */
 }
 
-/* #h3trescientosmil {
+#text-profesional p + p {
   margin-top: 1rem;
-  border-top: 1px solid #000;
 }
-
-.summary {
-  margin-bottom: 1rem;
-} */
 
 details[open] summary ~ * {
   animation: open 0.6 ease-in-out;
@@ -273,24 +276,28 @@ details summary {
   padding: 0.5rem 0;
   margin-top: 1rem;
   border-top: 1px solid black;
-  position: relative;
+  /* position: relative; */
   cursor: pointer;
   list-style: none;
   font-weight: 600;
+  font-size: 1.2rem;
+  /* display: inline-block; */
 }
 
 details summary:after {
   content: "+";
   color: black;
   position: absolute;
+  transform: translateY(-1rem);
   transform-origin: center;
   transition: 200ms linear;
   right: 0;
-
+  font-size: 2rem;
+  z-index: -2;
 }
 
 details[open] summary:after {
-  transform: rotate(45deg);
+  transform: rotate(-45deg) translateY(-1rem);
 }
 
 details summary {
@@ -302,21 +309,9 @@ details p {
   margin-bottom: 1rem;
 }
 
-/* .resume p + p {
-  margin-top: 1rem;
-}
-
-.collapsible {
-  max-height: 200px;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
+details p + p {
   margin-bottom: 1rem;
 }
-
-.collapsible.expanded {
-  max-height: 2000px;
-  
-} */
 
 .gallery {
   display: grid;
@@ -328,10 +323,47 @@ details p {
 .gallery img {
   width: 100%;
   height: auto;
-  display: block;
+  display: inline-block;
 
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+.container-gallery {
+  width: calc(100vw - 3rem);
+  height: 50vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap);
+  position: relative;
+}
+
+.container-gallery img {
+  --brightness: 0.75;
+  --grayscale: 1;
+  transition: flex var(--transition), filter var(--transition);
+  height: 100%;
+  filter: grayscale(var(--grayscale)) brightness(var(--brightness));
+  object-fit: cover;
+  overflow: hidden;
+  flex: 1;
+}
+
+.container-gallery img:hover {
+  --brightness: 1.15;
+  --grayscale: 0;
+  flex: var(--magnifier);
+}
+
+.pdf-container iframe {
+  min-height: 60vh;
+  border: none;
+}
+
+iframe {
+  color: var(--bg);
+  border-color: var(--bg);
 }
 
 nav ul {
