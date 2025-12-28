@@ -51,8 +51,12 @@ loadText("txt/about_me.txt", "text-about_me");
 
 loadText("txt/profesional.txt", "text-profesional");
 loadText("txt/profesional-trescientosmil.txt", "text-profesional-trescientosmil");
+loadText("txt/profesional-others.txt", "text-profesional-others");
 
 loadText("txt/academy.txt", "text-academy");
+loadText("txt/academy-research.txt", "text-academy-research");
+loadText("txt/academy-master.txt", "text-academy-master");
+loadText("txt/academy-bachelor.txt", "text-academy-bachelor");
 
 
 // Contantes y funciones para activar el botón creado con setupToggleIfNeeded, innecesario si no se utiliza
@@ -132,3 +136,28 @@ scrollDownBtn.addEventListener("click", () => {
 });
 
 lucide.createIcons();
+
+
+const galleryImages = document.querySelectorAll(".container-gallery img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+galleryImages.forEach(img => {
+  img.addEventListener("click", () => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add("active");
+  });
+});
+
+/* Close on click outside image */
+lightbox.addEventListener("click", () => {
+  lightbox.classList.remove("active");
+});
+
+/* Close on ESC */
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    lightbox.classList.remove("active");
+  }
+});

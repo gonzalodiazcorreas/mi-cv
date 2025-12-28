@@ -86,7 +86,23 @@
         </details>
         
         
-        <div class="container-gallery">
+        <div class="container-gallery" id="trescientosmil-gallery">
+          <img src="assets/gallery/Barcelona.png" alt="Urban project 1">
+          <img src="assets/gallery/Barcelona_2.png" alt="Urban project 2">
+          <img src="assets/gallery/Barcelona_3.png" alt="Urban project 3">
+          <img src="assets/gallery/madrid.png" alt="Urban project 4">
+          <img src="assets/gallery/madrid_2.png" alt="Urban project 5">
+          <img src="assets/gallery/madrid_3.png" alt="Urban project 6">
+        </div>
+
+        <details class="details">
+          <summary class="summary">others</summary>
+            <div id="text-profesional-others" class="collapsible">
+              <p>Cargando...</p> 
+            </div> 
+        </details>
+        
+        <div class="container-gallery" id="others-gallery">
           <img src="assets/gallery/Barcelona.png" alt="Urban project 1">
           <img src="assets/gallery/Barcelona_2.png" alt="Urban project 2">
           <img src="assets/gallery/Barcelona_3.png" alt="Urban project 3">
@@ -103,20 +119,43 @@
 
       <p id = "text-academy">Cargando...</p>
 
-      <div class="pdf-container">
-        <iframe
-          src="pdfjs/web/viewer.html?file=../../assets/docs/afterupdating.pdf#spreadmode=odd&zoom=50%"
-          title="Master thesis"  
-          width="100%"
-          height="60vh"
-        >
-        </iframe>
-      </div>
-      <p class="pdf-download">
-        <a href="assets/docs/afterupdating.pdf" download>
-          Download file
-        </a>
-      </p>
+      <details class="details">
+        <summary class="summary">Urban Morphology Research</summary>
+          <div id="text-academy-research" class="collapsible">
+            <p>Cargando...</p> 
+          </div> 
+      </details>
+
+      <details class="details">
+        <summary class="summary">Master Thesis - After Updating</summary>
+          <div id="text-academy-master" class="collapsible">
+            <p>Cargando...</p> 
+          </div> 
+          <div class="pdf-container">
+            <iframe
+              src="pdfjs/web/viewer.html?file=../../assets/docs/afterupdating.pdf#spreadmode=odd&zoom=50%"
+              title="Master thesis"
+              height="60vh"
+            >
+            </iframe>
+          </div>
+      </details>
+
+      <details class="details">
+        <summary class="summary">Bachelor Thesis</summary>
+          <div id="text-academy-bachelor" class="collapsible">
+            <p>Cargando...</p> 
+          </div> 
+          <div class="pdf-container">
+            <iframe
+              src="pdfjs/web/viewer.html?file=../../assets/docs/food_city.pdf#spreadmode=odd&zoom=50%"
+              title="Bachelor thesis"
+              height="60vh"
+            >
+            </iframe>
+          </div>
+      </details>
+
     </section>
 
     <section id="contacto">
@@ -129,10 +168,15 @@
     <p>© <span id="anio"></span> Gonzalo Díaz Correas</p>
   </footer>
 
+  <div class="lightbox" id="lightbox">
+    <img id="lightbox-img" alt="">
+  </div>
+
   <script src="pdfjs/build/pdf.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="script.js"></script>
   
 </body>
+
 </html>
 
